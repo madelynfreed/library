@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class RequestControllerTest < ActionDispatch::IntegrationTest
-  test "Post returns error if requred fields aren't provided" do
-    post "/request", params: { title: 'Watchmen'}
+  test "Post returns error if email isn't provided" do
+    post "/request", params: { title: 'Non existant book'}
+    assert_equal 400, status
+  end
+
+  test "Post returns error if title isn't provided" do
+    post "/request", params: { email: 'some@email.com' }
     assert_equal 400, status
   end
 
