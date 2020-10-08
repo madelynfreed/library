@@ -33,4 +33,5 @@ lockfile	bin/bundle	/^  def lockfile$/;"	f
 lockfile_version	bin/bundle	/^  def lockfile_version$/;"	f
 render_failure	app/controllers/request_controller.rb	/^  def render_failure$/;"	f	class:RequestController
 render_success	app/controllers/request_controller.rb	/^  def render_success title, book_request, available$/;"	f	class:RequestController
+set_available	app/controllers/request_controller.rb	/^  def set_available book$/;"	f	class:RequestController
 system!	bin/setup	/^def system!(*args)$/;"	f
