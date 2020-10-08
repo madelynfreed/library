@@ -1,9 +1,15 @@
 class RequestController < ApplicationController
   def create
     if params['title'] && params['email']
-      render json: {"id" => 1, "available" => true, "title" => 'Ghost World', "timestamp" => DateTime.now}, status: :ok
+      available = Book.find_by(title: params['title']).available
+      render json: {
+        "id" => 1,
+        "available" => available,
+        "title" => params['title'],
+        "timestamp" => DateTime.now
+      }, status: :ok
     else
-      render json: {}, status: :bad_request
+      render json: {"message" => "Please provide email and book title"}, status: :bad_request
     end
   end
 end
