@@ -1,25 +1,28 @@
 class RequestController < ApplicationController
   def create
-    if params['title'] && params['email']
-      book = Book.find_by(title: params['title'])
+    title = params['title']
+    email = params['email']
+    if title && email
+      book = Book.find_by(title: title)
       if book
-        available = Book.find_by(title: params['title']).available
-        Request.create(email: params['email'], book: book)
+        available = Book.find_by(title: title).available
+        book_request = Request.create(email: email, book: book)
 
         render json: {
-          "id" => 1,
+          "id" => book_request.id,
           "available" => available,
-          "title" => params['title'],
+          "title" => title,
           "timestamp" => DateTime.now
         },
         status: :ok
       else
-        Book.create(title: params['title'], available: false)
-        Request.create(email: params['email'], book: book)
+        book = Book.create(title: title, available: false)
+        available = false
+        book_request = Request.create(email: email, book: book)
         render json: {
-          "id" => 1,
-          "available" => false,
-          "title" => params['title'],
+          "id" => book_request.id,
+          "available" => available,
+          "title" => title,
           "timestamp" => DateTime.now
         },
         status: :ok
