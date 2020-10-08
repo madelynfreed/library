@@ -24,12 +24,13 @@ bundler_requirement	bin/bundle	/^  def bundler_requirement$/;"	f
 bundler_version	bin/bundle	/^  def bundler_version$/;"	f
 cli_arg_version	bin/bundle	/^  def cli_arg_version$/;"	f
 create	app/controllers/request_controller.rb	/^  def create$/;"	f	class:RequestController
-create_request_and_book	app/controllers/request_controller.rb	/^  def create_request_and_book book, email, title$/;"	f	class:RequestController
+create_request_and_book	app/controllers/request_controller.rb	/^  def create_request_and_book email, title$/;"	f	class:RequestController
 env_var_version	bin/bundle	/^  def env_var_version$/;"	f
 gemfile	bin/bundle	/^  def gemfile$/;"	f
 invoked_as_script?	bin/bundle	/^  def invoked_as_script?$/;"	f
 load_bundler!	bin/bundle	/^  def load_bundler!$/;"	f
 lockfile	bin/bundle	/^  def lockfile$/;"	f
 lockfile_version	bin/bundle	/^  def lockfile_version$/;"	f
+render_failure	app/controllers/request_controller.rb	/^  def render_failure$/;"	f	class:RequestController
 render_success	app/controllers/request_controller.rb	/^  def render_success title, book_request, available$/;"	f	class:RequestController
 system!	bin/setup	/^def system!(*args)$/;"	f
